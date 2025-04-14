@@ -2618,7 +2618,7 @@
 {{Block Infobox
 | title = Stairs
 | Description = An elevation assistance appliance.
-| image = Stairs.png
+| image = Metal Stairs.png
 | category = Decorations
 | Health = 90
 | Armour = 3
@@ -11981,7 +11981,7 @@
 {{Block Infobox
 | title = Barrel
 | Description = Standard barrel. Connects in front of the firing piece or the mantlet.
-| image = Barrel.png
+| image = APS Barrel.png
 | category = Advanced Cannons
 | Health = 800
 | Armour = 35
@@ -12829,7 +12829,7 @@
 {{Block Infobox
 | title = Heavy Barrel End
 | Description = A heavier armoured barrel. Connects in front of the firing piece or the mantlet.
-| image = Heavy Barrel End.png
+| image = APS Heavy Barrel End.png
 | category = Advanced Cannons
 | Health = 1000
 | Armour = 50
@@ -13017,7 +13017,7 @@
 {{Block Infobox
 | title = Heavy Barrel Start
 | Description = A heavier armoured barrel. Connects in front of the firing piece or the mantlet.
-| image = Heavy Barrel Start.png
+| image = APS Heavy Barrel Start.png
 | category = Advanced Cannons
 | Health = 1000
 | Armour = 50
@@ -13064,7 +13064,7 @@
 {{Block Infobox
 | title = Heavy Barrel
 | Description = A heavier armoured barrel. Connects in front of the firing piece or the mantlet.
-| image = Heavy Barrel.png
+| image = APS Heavy Barrel.png
 | category = Advanced Cannons
 | Health = 1000
 | Armour = 50
@@ -13487,7 +13487,7 @@
 {{Block Infobox
 | title = Laser Targeter
 | Description = Allows automatic setting of timed fuse and altitude fuse detonation parameters. Particularly useful when used by AI but also works when player controlled. Useful for exploding shells near the target which may avoid a complete miss.
-| image = Laser Targeter.png
+| image = APS Laser Targeter.png
 | category = Advanced Cannons
 | Health = 350
 | Armour = 50
@@ -16047,7 +16047,7 @@
 {{Block Infobox
 | title = Barrel
 | Description = Barrels connect in front of the firing piece to improve accuracy and add some special modifiers.
-| image = Barrel.png
+| image = CRAM Barrel.png
 | category = CRAM Cannons
 | Health = 1000
 | Armour = 50
@@ -16846,7 +16846,7 @@
 {{Block Infobox
 | title = Heavy Barrel
 | Description = Barrels connect in front of the firing piece to improve accuracy and add some special modifiers.
-| image = Heavy Barrel.png
+| image = CRAM Heavy Barrel.png
 | category = CRAM Cannons
 | Health = 1200
 | Armour = 60
@@ -17034,7 +17034,7 @@
 {{Block Infobox
 | title = Laser Targeter
 | Description = Allows automatic setting of timed fuse time and altitude fuse altitude detonation parameters. Particularly useful when used by AI but also works when player controlled. Useful for exploding shells near the target which may avoid a complete miss.
-| image = Laser Targeter.png
+| image = CRAM Laser Targeter.png
 | category = CRAM Cannons
 | Health = 400
 | Armour = 50
@@ -18590,7 +18590,7 @@
 {{Block Infobox
 | title = Stairs
 | Description = When the player walks or runs into them they will climb up one level.
-| image = Stairs.png
+| image = Wood Stairs.png
 | category = Decorations
 | Health = 90
 | Armour = 3
@@ -27771,7 +27771,7 @@
 {{Block Infobox
 | title = Connector
 | Description = The connector routes signals between the missile blocks over long distances.
-| image = Connector.png
+| image = Missile Connector.png
 | category = Missiles
 | Health = 100
 | Armour = 30
@@ -31450,7 +31450,7 @@
 {{Block Infobox
 | title = Connector
 | Description = Connects the collector to the mantlet (optional)
-| image = Connector.png
+| image = Plasma Connector.png
 | category = Plasma Cannons
 | Health = 400
 | Armour = 10
@@ -51479,7 +51479,7 @@
 {{Block Infobox
 | title = Heavy Barrel End
 | Description = Barrels connect in front of the firing piece to improve accuracy and add some special modifiers.
-| image = Heavy Barrel End.png
+| image = CRAM Heavy Barrel End.png
 | category = CRAM Cannons
 | Health = 1200
 | Armour = 60
@@ -51526,7 +51526,7 @@
 {{Block Infobox
 | title = Heavy Barrel Start
 | Description = Barrels belong directly in front of the firing piece. Each barrel has an base increase to muzzle velocity and accuracy as well as some special modifiers.
-| image = Heavy Barrel Start.png
+| image = CRAM Heavy Barrel Start.png
 | category = CRAM Cannons
 | Health = 1200
 | Armour = 60
