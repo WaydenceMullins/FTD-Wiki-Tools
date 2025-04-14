@@ -14,15 +14,32 @@ def FindBlockFiles(path, extension):                        #Finds files with "e
             if file.endswith(extension):                                #if it has the extension
                 foundFiles.append(os.path.join(root, file))                 #add it to found files list
     return foundFiles
-def CategoryCheck(category):                #Corrects category
+def ImageCheck(name, guid):                 #Blocks can share the same name in game, block icons on wiki can't
+    if guid in ["08d6ef2c-d97e-4b40-a5e3-0485b945f88b", "b2a95e90-cfad-4f43-9860-513d31f47374", "02666d0e-e9a9-4c9c-854b-a35972a3be64",
+                                                        "24fc1a2c-66aa-4152-a0d8-7d0dd5645151", "575c59bf-c5be-4558-8ab7-7bb672f62ffb"]:
+        return "APS " + name
+    elif guid in ["543fd6c7-fcf3-4df0-a4b2-891a8574b434", "1b672c70-b108-4ec9-b6f6-9f817adf7250", "c2dd399b-3563-496c-a7f3-5cc9984e2bd7",
+                                                          "279f21cf-ea0b-4e4d-9b89-cff016a72e24", "f9f91495-3c3b-48e2-9f4c-a53b01c47f6c"]:
+        return "CRAM " + name
+    elif guid == "154e5001-729c-4a9f-983b-342d3092a0f3":
+        return "Missile " + name                #Missile Connector
+    elif guid == "79d580ff-2dc2-42d5-b453-03acde0ef18c":
+        return "Plasma " + name                 #Plasma Connector
+    elif guid == "ce77cd15-ad63-425f-ab0c-28b16584d5a1":
+        return "Metal " + name                  #Metal Stairs
+    elif guid == "9a0d25cc-f5c2-4780-b674-38fe17e73f8e":
+        return "Wood " + name                   #Wood Stairs
+    else:
+        return name
+def CategoryCheck(category):                #There's no category data in block files, only where block is located in the inventory
     if category in ["Water", "Air", "Land", "Resources", "Control", "AI", "Fuel Engines", "Steam Engines", "Simple weapons", "CRAM Cannons", "Advanced Cannons", 
                     "Missiles", "Laser Systems", "Particle Cannons", "Plasma Cannons", "Flamethrowers", "Defence", "Miscellaneous", "Decorations", "Subobjects", "New blueprints"]:
-        return category                     #Changes nothing if category is correct
+        return category                         #Changes nothing if category is correct
     elif category in ["Alloy 1m to 2m slope transition left", "Alloy Plate", "Applique Panel", "Blocks", "ERA Armour", "Glass block", "Glass 1m to 2m slope transition left", "Heavy Armour", 
                     "Heavy Armour 1m to 2m slope transition left", "Lead 1m to 2m slope transition left", "Lead Block", "Light-weight Alloy Block", "Metal 1m to 2m slope transition left", 
                     "Metal Block", "Metal Plate", "Reinforced Wood", "Rubber 1m to 2m slope transition left", "Rubber Block", "Stone 1m to 2m slope transition left", "Stone Block", 
                     "Surge Protector", "Truss 1m", "Wood 1m to 2m slope transition left", "Wood Block Variant", "Wood Block", ]:
-        return "Building blocks"            #Changes to appropriate category
+        return "Building blocks"                #Changes to appropriate category
     elif category in ["Rudder Square"]:
         return "Water"
     elif category in ["Aileron", "ControlSurfaceComponent", "Duct (3x3)", "Jet controller", "Jet intake", "Small Jet Controller", "Small Jet Intake", "Wing middle", "Wing strut"]:
@@ -75,7 +92,7 @@ for itemFile in itemFileList:                                       #Do with eac
     blockDataDictionary[itemGuid] = [                                                       #Set GUID as key and list of block's properties as value
         re.sub("###.*?#?!", '',itemData.get("DisplayName")),                                    #0| title =         DisplayName is the one used in mimics and decos, and shown when you mouse over block in inventory
         re.sub("###.*?#?!", '',itemData.get("Description")),                                    #1| Description =   ###.*?#?! is a regex to remove translation strings
-        re.sub("###.*?#?!", '',itemData.get("DisplayName")) + ".png",                           #2| image = 
+        ImageCheck(re.sub("###.*?#?!", '',itemData.get("DisplayName")), itemGuid) + ".png",     #2| image = 
         CategoryCheck(itemData.get("InventoryTabOrVariantId").get("Reference").get("Name")),    #3| category = 
         DropTrailZero(itemData.get("Health")),                                                  #4| Health = 
         DropTrailZero(itemData.get("ArmourClass")),                                             #5| Armour = 
@@ -136,7 +153,7 @@ for itemDupModFile in itemDupModFileList:                                       
     blockDataDictionary[itemDMGuid] = [
         itemDataDM.get("ComponentId").get("Name") if isDispName == None else re.sub("###.*?#?!", '',itemDataDM.get("DisplayName")),             #0| title =         If DisplayName doesn't exist use ComponentId.Name
         re.sub("###.*?#?!", '',itemDataDM.get("Description")),                                                                                  #1| Description = 
-        itemDataDM.get("ComponentId").get("Name") + ".png" if isDispName == None else re.sub("###.*?#?!", '',itemDataDM.get("DisplayName")) + ".png",   #2| image =         If DisplayName doesn't exist use ComponentId.Name
+        ImageCheck(itemDataDM.get("ComponentId").get("Name") if isDispName == None else re.sub("###.*?#?!", '',itemDataDM.get("DisplayName")), itemDMGuid) + ".png",   #2| image =         If DisplayName doesn't exist use ComponentId.Name
         CategoryCheck(itemDataDM.get("InventoryTabOrVariantId").get("Reference").get("Name")),                                                  #3| category = 
         DropTrailZero(round(blockDataDictionary[idToDup][4]*itemDataDM.get("CostWeightHealthScaling")*itemDataDM.get("HealthScaling"), 1)),     #4| Health = 
         DropTrailZero(round(blockDataDictionary[idToDup][5]*itemDataDM.get("ArmourScaling"), 1)),                                               #5| Armour = 
